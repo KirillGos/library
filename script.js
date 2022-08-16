@@ -95,7 +95,6 @@ addABook.addEventListener('click', () => {
                     readSec.className = 'read';
                     readSec.innerText = 'read';
                     myLibrary[i].read = "read";
-                    console.log(myLibrary)
                 }
             });
             // add delete button
