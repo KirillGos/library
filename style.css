@@ -1,4 +1,122 @@
-.card {
-    background-color: lightgreen;
-    margin: 10px
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
+
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 0.5fr 5fr;
+}
+
+.header {
+    background-color: rgb(65, 210, 210);
+    padding: 15px;
+   
+}
+.search { 
+    display: flex;
+    align-items: center;
+    /* align-items: center; */
+}
+.header img {
+    height: 20px;
+    margin-right: 10px;
+}
+.header .search input {
+    width: 50vw;
+}
+.sidebar {
+    padding: 15px;
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    display: grid;
+    grid-template-rows: 0.5fr 5fr;
+    background-color: rgb(131, 131, 227);
+}
+.sidebar img {
+    height: 60px;
+    margin-right: 10px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+.inputs {
+    align-self: center;
+}
+.card {
+    /* height: 250px;
+    width: 250px; */
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgb(196, 196, 239);
+    display: grid;
+}
+.display { 
+    background-color: rgb(182, 102, 102);
+    padding: 15px;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
+   gap: 15px;
+   overflow: auto;
+}
+
+
+input {
+    border-radius: 5px;
+    padding: 5px 25px;
+    margin: 5px 0px ;
+    border: none;
+}
+
+button {
+    border-radius: 5px;
+    padding: 10px 25px;
+    background-color: rgb(14, 14, 105);
+    color: #fff;
+    margin: 10px 0px 0px 0px ;
+    border: none;
+}
+
+.sidebar .inputs button:hover {
+    background-color: #fff;
+    color: black;
+}
+.card img{ 
+    height: 30px;
+    justify-self: end;
+}
+
+.card p {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.card h1 {
+    font-size: 25px;
+    font-weight: 800;
+    justify-self: center;
+}
+
+.inputs h2 {
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+/* @media (max-width: 800px) {
+    .display {
+        grid-template-columns: 1fr;
+         grid-template-rows: 1fr;
+        
+    }
+} */

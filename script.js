@@ -5,7 +5,6 @@ let titleInput = document.querySelector('#title');
 let pagesInput = document.querySelector('#pages');
 
 let display = document.querySelector('.display');
-
 // button
 const button = document.querySelector('button');
 
@@ -46,15 +45,34 @@ button.addEventListener('click', () => {
             
             newCard.setAttribute('data-index', i);
             // create card sections
-            let authorSec = document.createElement('div');
-            let pagesSec = document.createElement('div');
-            let titleSec = document.createElement('div');
-            let readSec = document.createElement('div');
-        // add delete button
-            let deleteBtn = document.createElement('button');
-            deleteBtn.setAttribute('class', 'delete');
-            deleteBtn.innerText = 'delete';
-                   deleteBtn.addEventListener('click', () => {
+            let header = document.createElement('h1');
+            let authorSec = document.createElement('p');
+            let pagesSec = document.createElement('p');
+            let titleSec = document.createElement('p');
+            let readSec = document.createElement('p');
+            
+            // set the content 
+            authorSec.innerText = `Author: ${myLibrary[i].author}`;
+            pagesSec.innerText = `Pages: ${myLibrary[i].pages} `;
+            titleSec.innerText = `Title: ${myLibrary[i].title}`;    
+            readSec.innerText = `Read: ${myLibrary[i].read}`;
+
+            // add classes
+            authorSec.setAttribute('class', 'card-info');
+            pagesSec.setAttribute('class', 'card-info');
+            titleSec.setAttribute('class', 'card-info');
+            readSec.setAttribute('class', 'card-info');
+            header.innerText = `Book`;
+            // append sections to the card
+            newCard.appendChild(header);
+            newCard.appendChild(authorSec);
+            newCard.appendChild(titleSec);
+            newCard.appendChild(pagesSec);
+            newCard.appendChild(readSec);
+            // add delete button
+            let deleteBtn = document.createElement('img');
+            deleteBtn.setAttribute('src', './assets/trash-bin.svg');
+                deleteBtn.addEventListener('click', () => {
                     let index = newCard.dataset.index;
                     myLibrary.splice(index, 1);
                     deleteBtn.parentElement.remove(); 
@@ -65,24 +83,10 @@ button.addEventListener('click', () => {
                     }
             });
             newCard.appendChild(deleteBtn);
-            // set the content 
-            authorSec.innerText = `The author is ${myLibrary[i].author}`;
-            pagesSec.innerText = `${myLibrary[i].pages} pages`;
-            titleSec.innerText = `The title is ${myLibrary[i].title}`;    
-            readSec.innerText = `read: ${myLibrary[i].read}`;
-            
-            // append sections to the card
-            newCard.appendChild(authorSec);
-            newCard.appendChild(titleSec);
-            newCard.appendChild(pagesSec);
-            newCard.appendChild(readSec);
 
-       
             // append the card to the display
             display.appendChild(newCard);
         }
-     
-        console.log(myLibrary)
         // clear the input's
         authorInput.value = '';
         pagesInput.value = '';
@@ -90,3 +94,64 @@ button.addEventListener('click', () => {
         readInput.value = '';   
 });
  
+
+// // search 
+
+// const search = document.querySelector('#search');
+// search.addEventListener('keyup', filterCards);
+
+// function filterCards(e) {
+//     const text = e.target.value.toLowerCase();
+//     const cardItem = document.getElementsByClassName('card-info');
+//     Array.from(cardItem).forEach(item => {
+//         let itemName = item.textContent;
+//         console.log(itemName)
+//         if(itemName.toLowerCase().indexOf(text) != -1) {
+//             item.parentElement.style.display = 'grid';
+//         } else {
+//             item.parentElement.style.display = 'none';
+//         }
+//     });
+// };
+
+
+// default cards
+let newCard = document.createElement('div');
+newCard.setAttribute('class', 'card');
+
+
+// create card sections
+let header = document.createElement('h1');
+let authorSec = document.createElement('p');
+let pagesSec = document.createElement('p');
+let titleSec = document.createElement('p');
+let readSec = document.createElement('p');
+
+// set the content 
+authorSec.innerText = `Author: Joe Doe`;
+pagesSec.innerText = `Pages: 321 `;
+titleSec.innerText = `Title: The Coder`;    
+readSec.innerText = `Read: yes`;
+
+// add classes
+authorSec.setAttribute('class', 'card-info');
+pagesSec.setAttribute('class', 'card-info');
+titleSec.setAttribute('class', 'card-info');
+readSec.setAttribute('class', 'card-info');
+header.innerText = `Book`;
+// append sections to the card
+newCard.appendChild(header);
+newCard.appendChild(authorSec);
+newCard.appendChild(titleSec);
+newCard.appendChild(pagesSec);
+newCard.appendChild(readSec);
+// add delete button
+let deleteBtn = document.createElement('img');
+deleteBtn.setAttribute('src', './assets/trash-bin.svg');
+    deleteBtn.addEventListener('click', () => {
+        deleteBtn.parentElement.remove(); 
+});
+newCard.appendChild(deleteBtn);
+
+// append the card to the display
+display.appendChild(newCard);

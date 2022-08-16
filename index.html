@@ -5,36 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
+    <link rel="shortcut icon" href="assets/book-svgrepo-com.svg" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <h2>Enter a book info</h2>
-        <div class="inputs">
-            <div class="input-section">
-                <label for="author">Author</label>
-                <input type="text" class="input-1" id="author">
-            </div>
-            <div class="input-section">
-                <label for="pages">Pages</label>
-                <input type="text" class="input-2" id="pages">
-            </div>
-            <div class="input-section">
-                <label for="title">Title</label>
-                <input type="text" class="input-3" id="title">
-            </div>
-            <div class="input-section">
-                <label for="read">Read</label>
-                <input type="text" class="input-3" id="read">
-            </div>
+    <div class="header">
+        <div class="search">
+              <img src="./assets/search.svg" alt="search icon">
+        <input type="text"id="search">
         </div>
+      
+    </div>
+    
+    <div class="sidebar">
+        <div class="logo">
+            <img src="./assets/book-svgrepo-com.svg" alt="">
+            <h1>My Book Collection</h1>
+        </div>
+      
+            <div class="inputs">   
+                <h2>Enter  book info</h2>
+                <div class="input-section">
+                   <p>Enter the Author</p>
+                    <input type="text" class="input-1" id="author">
+                </div>
+               
+                <div class="input-section">
+                    <p>Enter the Title</p>
+                    <input type="text" class="input-3" id="title">
+                </div> 
+                <div class="input-section">
+                <p>Enter the number of pages</p>
+                    <input type="number" class="input-2" id="pages">
+                </div>
+                <div class="input-section">
+                    <p>Have you read it</p>
+                    <input type="text" class="input-3" id="read">
+                </div>
+                 <button>Add a Book</button>  
+            </div>
+       
+      
         
-        <div class="display">
-
+    </div>
+      <div class="display">
             
         </div>
-        <button>Add a Book</button>
-    </div>
 </body>
 </html>
