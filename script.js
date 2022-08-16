@@ -31,13 +31,14 @@ Book.prototype.addBookToLibrary = function() {
 
 
 button.addEventListener('click', () => {
+    display.innerText = '';
     let pages = pagesInput.value;
     let title = titleInput.value;
     let author = authorInput.value;
     let read = readInput.value;
     let newBook = new Book(author, title,pages , read);
     newBook.addBookToLibrary();
-        for(let i = 0; i < myLibrary.length; i++) {
+         for(let i = 0; i < myLibrary.length; i++) {
             // create a card
             let newCard = document.createElement('div');
             newCard.setAttribute('class', 'card');
@@ -52,6 +53,10 @@ button.addEventListener('click', () => {
             deleteBtn.setAttribute('class', 'delete');
             deleteBtn.innerText = 'delete';
             deleteBtn.addEventListener('click', () => {
+                if(myLibrary.length === 1) {
+                    myLibrary.splice(0, 2);
+                }
+                myLibrary.splice(i, 1);
                 deleteBtn.parentElement.remove();
             })
             newCard.appendChild(deleteBtn);
@@ -62,8 +67,8 @@ button.addEventListener('click', () => {
             readSec.innerText = `read: ${myLibrary[i].read}`;
             
             // append sections to the card
-            newCard.appendChild(titleSec);
             newCard.appendChild(authorSec);
+            newCard.appendChild(titleSec);
             newCard.appendChild(pagesSec);
             newCard.appendChild(readSec);
 
@@ -71,7 +76,7 @@ button.addEventListener('click', () => {
             // append the card to the display
             display.appendChild(newCard);
         }
-        myLibrary = [];
+        console.log(myLibrary)
         // clear the input's
         authorInput.value = '';
         pagesInput.value = '';
