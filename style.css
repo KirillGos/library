@@ -79,7 +79,7 @@ input {
     border: none;
 }
 
-button {
+.sidebar button {
     border-radius: 5px;
     padding: 10px 25px;
     background-color: rgb(14, 14, 105);
@@ -112,7 +112,27 @@ button {
     margin-bottom: 10px;
     color: #fff;
 }
+.readStatus {
+    display: inline;
+}
+.card .read {
+    box-sizing: content-box;
+    width: 50px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;  
+    padding: 2px; 
+}
 
+ .card .not-read {
+    width: 50px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;   
+    box-sizing: content-box;
+    padding: 2px;
+
+}
 /* @media (max-width: 800px) {
     .display {
         grid-template-columns: 1fr;

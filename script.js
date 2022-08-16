@@ -1,12 +1,12 @@
 // User inputs
 let authorInput = document.querySelector('#author');
-let readInput = document.querySelector('#read');
+let readBtn = document.querySelectorAll('.read');
 let titleInput = document.querySelector('#title');
 let pagesInput = document.querySelector('#pages');
 
 let display = document.querySelector('.display');
 // button
-const button = document.querySelector('button');
+const addABook = document.querySelector('#add-a-book');
 
 //display
 const authorDisplay = document.querySelector('.author');
@@ -16,6 +16,17 @@ const readDisplay = document.querySelector('.read');
 
 // All books
 let myLibrary = [];
+// read button
+let readBtn2 = document.querySelector('#read');
+readBtn2.addEventListener('click', () => {
+    if(readBtn2.className === 'read') {
+        readBtn2.className = 'not-read';
+        readBtn2.innerText = 'Not Read';
+    } else {
+        readBtn2.className = 'read';
+        readBtn2.innerText = 'Read';
+    }
+});
 
 function Book(author, title, pages, read) {
     this.author = author;
@@ -29,12 +40,13 @@ Book.prototype.addBookToLibrary = function() {
 }
 
 
-button.addEventListener('click', () => {
+addABook.addEventListener('click', () => {
+    
     display.innerText = '';
     let pages = pagesInput.value;
     let title = titleInput.value;
     let author = authorInput.value;
-    let read = readInput.value;
+    let read = readBtn2.innerText.toLowerCase();
     let newBook = new Book(author, title,pages , read);
     newBook.addBookToLibrary();
  
@@ -49,26 +61,43 @@ button.addEventListener('click', () => {
             let authorSec = document.createElement('p');
             let pagesSec = document.createElement('p');
             let titleSec = document.createElement('p');
-            let readSec = document.createElement('p');
+            let readHeader = document.createElement('p');
+            let readSec = document.createElement('button');
             
             // set the content 
             authorSec.innerText = `Author: ${myLibrary[i].author}`;
             pagesSec.innerText = `Pages: ${myLibrary[i].pages} `;
             titleSec.innerText = `Title: ${myLibrary[i].title}`;    
-            readSec.innerText = `Read: ${myLibrary[i].read}`;
-
+            readSec.innerText =  `${myLibrary[i].read}`
+            readHeader.innerText = 'Read Status: ' 
             // add classes
             authorSec.setAttribute('class', 'card-info');
+            readHeader.setAttribute('class', 'readStatus');
             pagesSec.setAttribute('class', 'card-info');
             titleSec.setAttribute('class', 'card-info');
-            readSec.setAttribute('class', 'card-info');
+            readSec.setAttribute('class', `${myLibrary[i].read}`);
             header.innerText = `Book`;
             // append sections to the card
+            
             newCard.appendChild(header);
             newCard.appendChild(authorSec);
             newCard.appendChild(titleSec);
             newCard.appendChild(pagesSec);
+            newCard.appendChild(readHeader);
             newCard.appendChild(readSec);
+            // read status button
+            readSec.addEventListener('click', () => {
+                if(readSec.className === 'read') {
+                    readSec.className = 'not-read';
+                    readSec.innerText = 'not read';
+                    myLibrary[i].read = 'not-read';
+                } else {
+                    readSec.className = 'read';
+                    readSec.innerText = 'read';
+                    myLibrary[i].read = "read";
+                    console.log(myLibrary)
+                }
+            });
             // add delete button
             let deleteBtn = document.createElement('img');
             deleteBtn.setAttribute('src', './assets/trash-bin.svg');
@@ -91,8 +120,9 @@ button.addEventListener('click', () => {
         authorInput.value = '';
         pagesInput.value = '';
         titleInput.value = '';
-        readInput.value = '';   
 });
+ 
+
  
 
 // // search 
@@ -155,3 +185,5 @@ newCard.appendChild(deleteBtn);
 
 // append the card to the display
 display.appendChild(newCard);
+
+
