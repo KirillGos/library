@@ -38,11 +38,13 @@ button.addEventListener('click', () => {
     let read = readInput.value;
     let newBook = new Book(author, title,pages , read);
     newBook.addBookToLibrary();
+ 
          for(let i = 0; i < myLibrary.length; i++) {
             // create a card
             let newCard = document.createElement('div');
             newCard.setAttribute('class', 'card');
             
+            newCard.setAttribute('data-index', i);
             // create card sections
             let authorSec = document.createElement('div');
             let pagesSec = document.createElement('div');
@@ -52,13 +54,16 @@ button.addEventListener('click', () => {
             let deleteBtn = document.createElement('button');
             deleteBtn.setAttribute('class', 'delete');
             deleteBtn.innerText = 'delete';
-            deleteBtn.addEventListener('click', () => {
-                if(myLibrary.length === 1) {
-                    myLibrary.splice(0, 2);
-                }
-                myLibrary.splice(i, 1);
-                deleteBtn.parentElement.remove();
-            })
+                   deleteBtn.addEventListener('click', () => {
+                    let index = newCard.dataset.index;
+                    myLibrary.splice(index, 1);
+                    deleteBtn.parentElement.remove(); 
+                    let allCards = Array.from(document.querySelectorAll('.card'));
+                    for(let a = 0; a < allCards.length; a++) {
+                        allCards[a].setAttribute('data-index', a);
+                        
+                    }
+            });
             newCard.appendChild(deleteBtn);
             // set the content 
             authorSec.innerText = `The author is ${myLibrary[i].author}`;
@@ -72,10 +77,11 @@ button.addEventListener('click', () => {
             newCard.appendChild(pagesSec);
             newCard.appendChild(readSec);
 
-            
+       
             // append the card to the display
             display.appendChild(newCard);
         }
+     
         console.log(myLibrary)
         // clear the input's
         authorInput.value = '';
@@ -83,3 +89,4 @@ button.addEventListener('click', () => {
         titleInput.value = '';
         readInput.value = '';   
 });
+ 
