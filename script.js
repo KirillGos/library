@@ -14,8 +14,12 @@ const pagesDisplay = document.querySelector('.pages');
 const titleDisplay = document.querySelector('.title');
 const readDisplay = document.querySelector('.read');
 
-// All books
-let myLibrary = [];
+let myLibrary = [{
+    author: 'J. R. R. Tolkien',
+    title: 'The Lord Of The Rings',
+    pages: '1178',
+    read: 'read'
+}];
 // read button
 let readBtn2 = document.querySelector('#read');
 readBtn2.addEventListener('click', () => {
@@ -144,45 +148,6 @@ addABook.addEventListener('click', () => {
 // };
 
 
-// default cards
-let newCard = document.createElement('div');
-newCard.setAttribute('class', 'card');
 
-
-// create card sections
-let header = document.createElement('h1');
-let authorSec = document.createElement('p');
-let pagesSec = document.createElement('p');
-let titleSec = document.createElement('p');
-let readSec = document.createElement('p');
-
-// set the content 
-authorSec.innerText = `Author: Joe Doe`;
-pagesSec.innerText = `Pages: 321 `;
-titleSec.innerText = `Title: The Coder`;    
-readSec.innerText = `Read: yes`;
-
-// add classes
-authorSec.setAttribute('class', 'card-info');
-pagesSec.setAttribute('class', 'card-info');
-titleSec.setAttribute('class', 'card-info');
-readSec.setAttribute('class', 'card-info');
-header.innerText = `Book`;
-// append sections to the card
-newCard.appendChild(header);
-newCard.appendChild(authorSec);
-newCard.appendChild(titleSec);
-newCard.appendChild(pagesSec);
-newCard.appendChild(readSec);
-// add delete button
-let deleteBtn = document.createElement('img');
-deleteBtn.setAttribute('src', './assets/trash-bin.svg');
-    deleteBtn.addEventListener('click', () => {
-        deleteBtn.parentElement.remove(); 
-});
-newCard.appendChild(deleteBtn);
-
-// append the card to the display
-display.appendChild(newCard);
 
 
