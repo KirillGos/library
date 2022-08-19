@@ -44,6 +44,15 @@ body {
     margin-right: 10px;
 }
 
+.sidebar .stats {
+    align-self: center;
+    background-color: #fff;
+    padding: 5px;
+    font-size: 22px;
+}
+.sidebar .stats .total-books , .total-amount-of-pages{
+    display: flex;
+}
 .logo {
     display: flex;
     align-items: center;
@@ -79,7 +88,7 @@ input {
     border: none;
 }
 
-.sidebar button {
+.inputs button {
     border-radius: 5px;
     padding: 10px 25px;
     background-color: rgb(14, 14, 105);
@@ -88,7 +97,7 @@ input {
     border: none;
 }
 
-.sidebar .inputs button:hover {
+ .inputs button:hover {
     background-color: #fff;
     color: black;
 }
@@ -133,7 +142,17 @@ input {
     padding: 2px;
 
 }
- 
+
+
+
+.form {
+    background-color: rgb(116, 171, 220);
+    position: absolute;
+    display: grid;
+    padding: 20px;
+    align-self: center;
+   justify-self: center;
+}
 /* @media (max-width: 800px) {
     .display {
         grid-template-columns: 1fr;
