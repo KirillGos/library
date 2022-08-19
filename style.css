@@ -47,19 +47,25 @@ body {
 .sidebar .stats {
     align-self: center;
     background-color: #fff;
-    padding: 5px;
+    padding: 20px;
+    border-radius: 10px;
     font-size: 22px;
+    display: grid;
+    gap: 10px;
 }
 .sidebar .stats .total-books , .total-amount-of-pages{
     display: flex;
+    margin-bottom: 10px;
 }
 .logo {
     display: flex;
     align-items: center;
 }
+
 .inputs {
     align-self: center;
 }
+
 .card {
     /* height: 250px;
     width: 250px; */
@@ -88,19 +94,6 @@ input {
     border: none;
 }
 
-.inputs button {
-    border-radius: 5px;
-    padding: 10px 25px;
-    background-color: rgb(14, 14, 105);
-    color: #fff;
-    margin: 10px 0px 0px 0px ;
-    border: none;
-}
-
- .inputs button:hover {
-    background-color: #fff;
-    color: black;
-}
 .card img{ 
     height: 30px;
     justify-self: end;
@@ -143,15 +136,69 @@ input {
 
 }
 
-
-
 .form {
     background-color: rgb(116, 171, 220);
     position: absolute;
     display: grid;
-    padding: 20px;
+    padding: 25px;
     align-self: center;
-   justify-self: center;
+    justify-self: center;
+   width: 500px;
+   /* justify-content: center; */
+}
+
+.form-exit {
+    width: 20px;
+    height: 20px;
+    border: none;
+    background-color: rgb(245, 0, 0);
+    color: #fff;
+    justify-self: end;
+    border-radius: 50%;
+}
+.not-read-pages {
+    margin-bottom: 20px;
+}
+.bring-form {
+    padding: 10px 35px;
+    border-radius: 10px;
+    border: none; background-color: rgb(244, 192, 128);
+    align-self: center;
+    width: 100%;
+}
+
+.bring-form:hover {
+   background-color: rgb(236, 163, 74);
+}
+
+.stats h2 {
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 30px;
+}
+
+.inputs input {
+    width: 100%;
+}
+.inputs #read {
+    border-radius: 5px;
+    padding: 8px 20px;
+    background-color: rgb(31, 77, 214);
+    color: #fff;
+    margin: 10px 0px 20px 0px ;
+    border: none;
+}
+.form #add-a-book {
+    padding: 10px 35px;
+    border-radius: 10px;
+    border: none; background-color: rgb(244, 192, 128);
+    align-self: center;
+    /* width: 100%; */
+    justify-self: end;
+}
+ .inputs button:hover {
+    background-color: #fff;
+    color: black;
 }
 /* @media (max-width: 800px) {
     .display {

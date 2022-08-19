@@ -74,14 +74,21 @@
         readSec.appendChild(readBtn);
         inputs.appendChild(readSec);
 
-
+    // exit button 
+        let exit = document.createElement('button');
+        exit.setAttribute('class', 'form-exit');
+        exit.innerText = 'X';
+        exit.addEventListener('click', () =>  {
+            form.style.display = 'none';
+        });
+        form.appendChild(exit);
     // create add button
         let addBtn = document.createElement('button');
         addBtn.setAttribute('id', 'add-a-book');
         addBtn.innerText = 'Add a Book';
-        inputs.appendChild(addBtn);
         form.appendChild(inputs);
-
+        form.appendChild(addBtn);
+        
 })();
 
 
@@ -174,7 +181,12 @@ addABook.addEventListener('click', getBookInfo);
             pagesSec.setAttribute('class', 'card-info');
             titleSec.setAttribute('class', 'card-info');
             readSec.setAttribute('class', `${array[i].read}`);
-            header.innerText = `Book`;
+            if(array[i].title !== '') {
+                header.innerText = `${array[i].title}`;
+            } else {
+                header.innerText = `Book`;
+            }
+            
 
             // append sections to the card
             newCard.appendChild(header);
@@ -202,14 +214,24 @@ addABook.addEventListener('click', getBookInfo);
 
         // stats total pages 
         let totalPages = document.querySelector('.total-pages');
+        let notReadPages = document.querySelector('.not-read-pages-count');
+        let readPages = document.querySelector('.read-pages-count');
         function getTotal() {
-            let total = 0;
+            let totalNotRead = 0;
+            let readPagesCount = 0;
+            let totalPagesCount = 0;
             for(let i = 0; i < myLibrary.length; i++) {
+                totalPagesCount += Number(myLibrary[i].pages);
                 if(myLibrary[i].read !== 'read') {
-                     total += Number(myLibrary[i].pages);
-                }
+                    totalNotRead += Number(myLibrary[i].pages);
+                } else  if(myLibrary[i].read !== 'not-read') {
+                    readPagesCount += Number(myLibrary[i].pages);
+                } 
+
             }
-            totalPages.innerText = total;
+            notReadPages.innerText = totalNotRead;
+            readPages.innerText = readPagesCount;
+            totalPages.innerText = totalPagesCount;
         }
         getTotal();
         // clear the input's
@@ -245,11 +267,6 @@ addABook.addEventListener('click', getBookInfo);
             getTotal();
      }; 
     }
-
-   
-
-   
-       
 
     let bringForm = document.querySelector('.bring-form');
     bringForm.addEventListener('click', bringFormFunction);
