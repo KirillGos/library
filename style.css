@@ -82,8 +82,8 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
-   gap: 15px;
-   overflow: auto;
+    gap: 15px;
+    overflow: auto;
 }
 
 
@@ -137,16 +137,28 @@ input {
 }
 
 .form {
-    background-color: rgb(116, 171, 220);
     position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.container {
+    background-color: rgb(116, 171, 220);
     display: grid;
     padding: 25px;
     align-self: center;
     justify-self: center;
-   width: 500px;
+    width: 500px;
    /* justify-content: center; */
 }
-
+.header-of-inputs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+.header-of-inputs h2 {
+    color: #fff;
+}
 .form-exit {
     width: 20px;
     height: 20px;

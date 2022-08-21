@@ -1,94 +1,11 @@
 (function() {
     let form = document.querySelector('.form');
-    let inputs = document.createElement('div');
-    inputs.setAttribute('class', 'inputs');
-
-    // h2 header 
-    let inputsHeader = document.createElement('h2');
-    inputsHeader.innerText = 'Enter a Book Info';
-    inputs.appendChild(inputsHeader);
-    function inputSectionCreate() {
-        let inputSection = document.createElement('div');
-        inputSection.setAttribute('class', 'input-section');
-        return inputSection;
-    }
-    
-    // author section
-        let authorSec = inputSectionCreate();
-        // author label
-        let author = document.createElement('p');
-        author.innerText = "Enter the Author";
-        // author input 
-        let authorInput = document.createElement('input');
-        authorInput.setAttribute('id', 'author');
-        authorInput.setAttribute('type', 'text');
-        authorInput.setAttribute('class', 'input-1');
-
-        authorSec.appendChild(author);
-        authorSec.appendChild(authorInput);
-        inputs.appendChild(authorSec);
-
-    // title section
-        let titleSec = inputSectionCreate();
-        // author label
-        let title = document.createElement('p');
-        title.innerText = 'Enter the Title';
-        // author input 
-        let titleInput = document.createElement('input');
-        titleInput.setAttribute('id', 'title');
-        titleInput.setAttribute('type', 'text');
-        titleInput.setAttribute('class', 'input-2');
-
-        titleSec.appendChild(title);
-        titleSec.appendChild(titleInput);
-        inputs.appendChild(titleSec);
-
-    // pages section
-        let pagesSec = inputSectionCreate();
-        // pages label
-        let pages = document.createElement('p');
-        pages.innerText = 'Enter the number of pages';
-        // pages input 
-        let pagesInput = document.createElement('input');
-        pagesInput.setAttribute('id', 'pages');
-        pagesInput.setAttribute('type', 'number');
-        pagesInput.setAttribute('class', 'input-3');
-
-        pagesSec.appendChild(pages);
-        pagesSec.appendChild(pagesInput);
-        inputs.appendChild(pagesSec);
-
-    // read section 
-        let readSec = inputSectionCreate();
-        // read label
-        let read = document.createElement('p');
-        read.innerText = 'Have You Read This Book'
-        // read input 
-        let readBtn = document.createElement('button');
-        readBtn.setAttribute('id', 'read');
-        readBtn.setAttribute('type', 'generic');
-        readBtn.setAttribute('class', 'read');
-        readBtn.innerText = 'read';
-
-        readSec.appendChild(read);
-        readSec.appendChild(readBtn);
-        inputs.appendChild(readSec);
-
-    // exit button 
-        let exit = document.createElement('button');
-        exit.setAttribute('class', 'form-exit');
-        exit.innerText = 'X';
+    let exit = document.querySelector('.form-exit');
+    // exit button
         exit.addEventListener('click', () =>  {
             form.style.display = 'none';
         });
-        form.appendChild(exit);
     // create add button
-        let addBtn = document.createElement('button');
-        addBtn.setAttribute('id', 'add-a-book');
-        addBtn.innerText = 'Add a Book';
-        form.appendChild(inputs);
-        form.appendChild(addBtn);
-        
 })();
 
 
