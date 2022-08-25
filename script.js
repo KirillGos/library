@@ -9,7 +9,7 @@
 })();
 
 
-(function() {
+let test = (function() {
     // User inputs
 let authorInput = document.querySelector('#author');
 let readBtn = document.querySelectorAll('.read');
@@ -42,18 +42,22 @@ function readSts2(e) {
      }
 }
 
-function Book(author, title, pages, read) {
-    this.author = author;
-    this.title = title;
-    this.pages = pages;
-    this.read = read;
-}
+class Book{
+    constructor(author, title, pages, read) {
+        this.author = author;
+        this.title = title;
+        this.pages = pages;
+        this.read = read;
+    }
+   
+    addBookToLibrary() {
+        myLibrary.push(this);
+    }
 
-Book.prototype.addBookToLibrary = function() {
-   myLibrary.push(this);
+    createNewCard(array) {
+        createCard(array);
+    }
 }
-
-Book.prototype.createNewCard = createCard;
 
 function getBookInfo() {
     let pages = pagesInput.value;
@@ -68,7 +72,6 @@ function getBookInfo() {
 }
         
 addABook.addEventListener('click', getBookInfo);
- 
     function createCard(array) {
           display.innerText = '';
         for(let i = 0; i < array.length; i++) {
@@ -190,6 +193,6 @@ addABook.addEventListener('click', getBookInfo);
     function bringFormFunction() {
         form.style.display = 'grid';
     }
-        
+        return {myLibrary}
 }) ();
 
